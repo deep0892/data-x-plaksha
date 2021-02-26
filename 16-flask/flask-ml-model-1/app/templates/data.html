@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>IMDb Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <style>
+            body {
+                text-align: center;
+            }
+            
+            form {
+                display: inline-block;
+            }
+        </style>
+        {% extends "home.html" %} {% block content %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Review</th>
+                    <th scope="col">Prediction</th>
+                    <th scope="col">Feedback</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for val in values %}
+                <tr>
+                    <th scope="row">{{ val[0] }}</th>
+                    <td>{{ val[1] }}</td>
+                    <td>{%if val[2] == 1%} {{"Positive Review"}} {% else %} {{"Negative Review"}} {% endif %}
+                    </td>
+                    <td>{%if val[3] != None%} {{val[3]}} {% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endblock %}
+</body>
+
+</html>

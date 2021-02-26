@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title>IMDb Review</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    {% extends "home.html" %} {% block content %}
+    <div>
+        <style>
+            body {
+                text-align: center;
+            }
+            
+            form {
+                display: inline-block;
+            }
+        </style>
+        <div>
+            <h1>Get Sentiment Analysis of movie reviews</h1>
+            <p>
+                Enter the movie review to analyse if it is a positive or a negative reviw. You are just a sec away!
+            </p>
+        </div>
+        <form action="/result" class="form-group" method="post">
+            <div class="row">
+                <p>Enter movie review:</p>
+                <p>
+                    <textarea class="form-control" type="text" name="review"></textarea>
+                </p>
+            </div>
+            <p><input class="btn btn-primary" type="submit" value="submit" /></p>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

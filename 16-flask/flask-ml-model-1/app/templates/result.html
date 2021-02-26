@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <title>IMDb Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <style>
+            body {
+                text-align: center;
+            }
+            
+            form {
+                display: inline-block;
+            }
+        </style>
+        {% extends "home.html" %} {% block content %}
+        <div class="jumbotron">
+            <p><b>Review:</b> {{value[0]}}</p>
+            <p><b>Prediction:</b> {{ value[1] }}</p>
+            <!-- <p><b>Feedback:</b> {{ value[1] }}</p> -->
+            <div class="container">
+                <h4>Feeback: Was the prediction correct?</h4>
+                <form action="/feedback" class="form-group" method="post">
+                    <label class="radio-inline">
+              <input
+                type="radio"
+                name="feedback"
+                value="1"
+                onclick="this.form.submit()"
+              />
+              Correct
+            </label>
+                    <label class="radio-inline">
+              <input
+                type="radio"
+                name="feedback"
+                value="0"
+                onclick="this.form.submit()"
+              />
+              Wrong
+            </label>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>
